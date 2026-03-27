@@ -55,7 +55,7 @@ us_portfolio = [
     {"code": "SOFI", "shares": 80.3943, "cost": 24.419},
     {"code": "ORCL", "shares": 4.20742, "cost": 169.68324},
     {"code": "QQQI", "shares": 9, "cost": 52.3771},
-    {"code": "TSLA", "shares": 6, "cost": 414.13667	},
+    {"code": "TSLA", "shares": 6, "cost": 414.13667},
 ]
 
 # =========================
