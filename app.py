@@ -18,12 +18,12 @@ DATA_FILE = "cash_data.json"
 # =========================
 def load_settings():
     default_data = {
-        "twd_bank": 68334, "twd_physical": 0, "twd_max": 0, "usd": 544.16,
+        "twd_bank": 68334, "twd_physical": 0, "twd_max": 0, "usd": 714.15,
         "btc": 0.012498, "btc_cost": 79905.3,
         "eth": 0.0536, "eth_cost": 2961.40,
         "sol": 4.209, "sol_cost": 131.0,
         "realized_profit_twd": 98966,
-        "realized_profit_us_stock": -45,
+        "realized_profit_us_stock": -60,
         "realized_profit_crypto": 0.0
     }
     if os.path.exists(DATA_FILE):
@@ -49,13 +49,13 @@ tw_portfolio = [
 
 us_portfolio = [
     {"code": "GRAB", "shares": 50, "cost": 5.125},
-    {"code": "NFLX", "shares": 10.33591, "cost": 96.75007},
+    {"code": "NFLX", "shares": 5, "cost": 96.75007},
     {"code": "NVDA", "shares": 9.78414, "cost": 173.7884},
     {"code": "PLTR", "shares": 2.2357, "cost": 148.96006},
     {"code": "SOFI", "shares": 80.3943, "cost": 24.419},
     {"code": "ORCL", "shares": 4.20742, "cost": 169.68324},
     {"code": "QQQI", "shares": 9, "cost": 52.3771},
-    {"code": "TSLA", "shares": 5.09479, "cost": 423.040823},
+    {"code": "TSLA", "shares": 6, "cost": 414.13667	},
 ]
 
 # =========================
