@@ -18,12 +18,12 @@ DATA_FILE = "cash_data.json"
 # =========================
 def load_settings():
     default_data = {
-        "twd_bank": 68334, "twd_physical": 0, "twd_max": 0, "usd": 714.15,
+        "twd_bank": 84000, "twd_physical": 0, "twd_max": 20335, "usd": 1,194.54	,
         "btc": 0.012498, "btc_cost": 79905.3,
         "eth": 0.0536, "eth_cost": 2961.40,
         "sol": 4.209, "sol_cost": 131.0,
         "realized_profit_twd": 98966,
-        "realized_profit_us_stock": -60,
+        "realized_profit_us_stock": -64,
         "realized_profit_crypto": 0.0
     }
     if os.path.exists(DATA_FILE):
@@ -49,7 +49,6 @@ tw_portfolio = [
 
 us_portfolio = [
     {"code": "GRAB", "shares": 50, "cost": 5.125},
-    {"code": "NFLX", "shares": 5, "cost": 96.75007},
     {"code": "NVDA", "shares": 9.78414, "cost": 173.7884},
     {"code": "PLTR", "shares": 2.2357, "cost": 148.96006},
     {"code": "SOFI", "shares": 80.3943, "cost": 24.419},
@@ -124,7 +123,6 @@ def get_usdtwd():
 def fetch_prev_close_and_live(code: str, market_tz: str):
     ticker = yf.Ticker(code)
     
-    # 1. 日K：抓昨日/今日的 close (放寬到 1mo 確保一定有資料)
     df_d = ticker.history(period="1mo", interval="1d")
     if df_d.empty or "Close" not in df_d.columns:
         raise ValueError(f"無法取得日K資料")
@@ -139,13 +137,11 @@ def fetch_prev_close_and_live(code: str, market_tz: str):
     else:
         raise ValueError("日K的 Close 欄位無有效數據")
 
-    # 預設：盤中拿不到就退回日K最後 close
     live_price = last_daily_close
     live_ts_local = None
     live_date_local = None
     has_live_today = False
 
-    # 2. 盤中：1m
     try:
         df_i = ticker.history(period="5d", interval="1m")
         if not df_i.empty and "Close" in df_i.columns:
@@ -365,6 +361,10 @@ cash_total_twd = cash_twd_bank + cash_twd_physical + cash_twd_max + (cash_usd * 
 stock_crypto_total = float(df["市值(TWD)"].sum()) if not df.empty else 0.0
 total_assets = stock_crypto_total + cash_total_twd
 
+# ⭐ 新增：投資的資產總額 
+# 邏輯：總資產 減去 銀行台幣、MAX台幣、實體現鈔 (保留所有持倉與美金券商餘額)
+invested_assets = total_assets - cash_twd_bank - cash_twd_max - cash_twd_physical
+
 # 未實現
 unreal_tw = float(df[df["類型"] == "台股"]["未實現損益(TWD)"].sum()) if not df.empty else 0.0
 unreal_us = float(df[df["類型"] == "美股"]["未實現損益(TWD)"].sum()) if not df.empty else 0.0
@@ -398,11 +398,13 @@ else:
 # =========================
 # 7) 指標區
 # =========================
-c1, c2, c3, c4 = st.columns(4)
+# ⭐ 這裡拆成 5 格：保留總資產，旁邊放投資總額
+c1, c2, c3, c4, c5 = st.columns(5)
 c1.metric("🏆 總資產(TWD)", f"${total_assets:,.0f}")
-c2.metric("💰 總獲利(含已實現)", f"${total_profit:,.0f}", delta=f"{return_rate_approx:.2f}% (近似)")
-c3.metric("📅 今日/24h 變動(TWD)", f"${today_change:,.0f}", delta=f"{today_change_pct:.2f}%")
-c4.metric("💱 USD/TWD", f"{rate:.2f}", delta=rate_src)
+c2.metric("🎯 投資總額(TWD)", f"${invested_assets:,.0f}")
+c3.metric("💰 總獲利(含已實現)", f"${total_profit:,.0f}", delta=f"{return_rate_approx:.2f}% (近似)")
+c4.metric("📅 今日/24h變動", f"${today_change:,.0f}", delta=f"{today_change_pct:.2f}%")
+c5.metric("💱 USD/TWD", f"{rate:.2f}", delta=rate_src)
 
 st.markdown("---")
 
