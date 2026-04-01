@@ -18,7 +18,7 @@ DATA_FILE = "cash_data.json"
 # =========================
 def load_settings():
     default_data = {
-        "twd_bank": 84000, "twd_physical": 0, "twd_max": 20335, "usd": 1,194.54	,
+        "twd_bank": 84000, "twd_physical": 0, "twd_max": 20335, "usd": 1,195,
         "btc": 0.012498, "btc_cost": 79905.3,
         "eth": 0.0536, "eth_cost": 2961.40,
         "sol": 4.209, "sol_cost": 131.0,
