@@ -18,7 +18,7 @@ DATA_FILE = "cash_data.json"
 # =========================
 def load_settings():
     default_data = {
-        "twd_bank": 84000, "twd_physical": 0, "twd_max": 20335, "usd": 1195,
+        "twd_bank": 53651, "twd_physical": 0, "twd_max": 20335, "usd": 1014.77,
         "btc": 0.012498, "btc_cost": 79905.3,
         "eth": 0.0536, "eth_cost": 2961.40,
         "sol": 4.209, "sol_cost": 131.0,
@@ -45,6 +45,7 @@ def save_settings(d):
 tw_portfolio = [
     {"code": "2317.TW", "name": "鴻海", "shares": 160, "cost": 166.84},
     {"code": "2330.TW", "name": "台積電", "shares": 44, "cost": 1013.12},
+    {"code": "4958.TW", "name": "臻鼎-KY", "shares": 67, "cost": 208},
 ]
 
 us_portfolio = [
@@ -54,7 +55,7 @@ us_portfolio = [
     {"code": "SOFI", "shares": 80.3943, "cost": 24.419},
     {"code": "ORCL", "shares": 4.20742, "cost": 169.68324},
     {"code": "QQQI", "shares": 9, "cost": 52.3771},
-    {"code": "TSLA", "shares": 6, "cost": 414.13667},
+    {"code": "TSLA", "shares": 6.5, "cost": 409.93846},
 ]
 
 # =========================
