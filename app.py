@@ -33,8 +33,8 @@ DEFAULT_DATA = {
     "tw_portfolio": [
         {"code": "2317.TW", "name": "鴻海",    "shares": 160,     "cost": 166.84},
         {"code": "2330.TW", "name": "台積電",  "shares": 44,      "cost": 1013.12},
-        {"code": "4958.TW", "name": "臻鼎-KY", "shares": 60,      "cost": 197.4},
-        {"code": "3376.TW", "name": "新日興", "shares": 67,      "cost": 208.0},
+        {"code": "4958.TW", "name": "臻鼎-KY", "shares": 60,      "cost": 209.21},
+        {"code": "3376.TW", "name": "新日興", "shares": 67,      "cost":  197.4},
     ],
     "us_portfolio": [
         {"code": "GRAB",  "shares": 50,       "cost": 5.125},
