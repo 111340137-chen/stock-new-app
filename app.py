@@ -20,21 +20,21 @@ HISTORY_FILE = "asset_history.json"
 # 1) 讀寫設定
 # =========================
 DEFAULT_DATA = {
-    "twd_bank": 48619,
+    "twd_bank": 50013,
     "twd_physical": 0,
     "twd_max": 20335,
     "usd": 1014.77,
     "btc": 0.012498, "btc_cost": 79905.3,
     "eth": 0.0536,   "eth_cost": 2961.40,
     "sol": 4.209,    "sol_cost": 131.0,
-    "realized_profit_twd": 98966,
+    "realized_profit_twd": 100556,
     "realized_profit_us_stock": -64,
     "realized_profit_crypto": 0.0,
     "tw_portfolio": [
         {"code": "2317.TW", "name": "鴻海",    "shares": 160,     "cost": 166.84},
         {"code": "2330.TW", "name": "台積電",  "shares": 44,      "cost": 1013.12},
         {"code": "4958.TW", "name": "臻鼎-KY", "shares": 67,      "cost": 209.21},
-        {"code": "3376.TW", "name": "新日興", "shares": 60,      "cost":  197.4},
+        {"code": "2436.TW", "name": "偉詮電", "shares": 150,      "cost":  80.27},
     ],
     "us_portfolio": [
         {"code": "GRAB",  "shares": 50,       "cost": 5.125},
