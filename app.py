@@ -23,7 +23,7 @@ DEFAULT_DATA = {
     "twd_bank": 66059,
     "twd_physical": 0,
     "twd_max": 20335,
-    "usd": 1014.77,
+    "usd": 695.78,
     "btc": 0.012498, "btc_cost": 79905.3,
     "eth": 0.0536,   "eth_cost": 2961.40,
     "sol": 4.209,    "sol_cost": 131.0,
@@ -44,6 +44,7 @@ DEFAULT_DATA = {
         {"code": "ORCL",  "shares": 4.20742,  "cost": 169.68324},
         {"code": "QQQI",  "shares": 9,        "cost": 52.3771},
         {"code": "TSLA",  "shares": 6.5,      "cost": 409.93846},
+         {"code": "LITE",  "shares": 0.36567,      "cost": 872.343},
     ],
 }
 
